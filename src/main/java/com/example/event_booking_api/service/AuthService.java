@@ -11,19 +11,23 @@ import com.example.event_booking_api.dto.RegisterRequest;
 import com.example.event_booking_api.model.Role;
 import com.example.event_booking_api.model.User;
 import com.example.event_booking_api.repository.UserRepository;
+import com.example.event_booking_api.security.JwtService;
 
 @Service
 public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     public AuthService(
             UserRepository userRepository,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder,
+            JwtService jwtService) {
 
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 
     public User register(RegisterRequest request) {
@@ -51,8 +55,8 @@ public class AuthService {
 
         User user = userRepository
                 .findByEmail(request.getEmail())
-                .orElseThrow(() ->
-                        new RuntimeException("User not found"));
+                .orElseThrow(()
+                        -> new RuntimeException("User not found"));
 
         if (!passwordEncoder.matches(
                 request.getPassword(),
@@ -61,8 +65,12 @@ public class AuthService {
             throw new RuntimeException("Invalid password");
         }
 
+        String token
+                = jwtService.generateToken(
+                        user.getEmail());
+
         return new AuthResponse(
-                "fake-jwt-token",
+                token,
                 user.getEmail(),
                 user.getRole().name());
     }
