@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.event_booking_api.dto.AuthResponse;
 import com.example.event_booking_api.dto.LoginRequest;
 import com.example.event_booking_api.dto.RegisterRequest;
+import com.example.event_booking_api.exception.UserNotFoundException;
 import com.example.event_booking_api.model.Role;
 import com.example.event_booking_api.model.User;
 import com.example.event_booking_api.repository.UserRepository;
@@ -53,24 +54,33 @@ public class AuthService {
 
     public AuthResponse login(LoginRequest request) {
 
+        System.out.println("AUTH SERVICE LOGIN START");
+
         User user = userRepository
                 .findByEmail(request.getEmail())
                 .orElseThrow(()
-                        -> new RuntimeException("User not found"));
+                        -> new UserNotFoundException(
+                        "User not found"));
+
+        System.out.println("USER FOUND");
 
         if (!passwordEncoder.matches(
                 request.getPassword(),
                 user.getPassword())) {
 
+            System.out.println("PASSWORD INVALID");
+
             throw new RuntimeException("Invalid password");
         }
 
-        String token
-                = jwtService.generateToken(
-                        user.getEmail());
+        System.out.println("PASSWORD VALID");
+
+        String token = jwtService.generateToken(
+                user.getEmail());
 
         return new AuthResponse(
                 token,
+                user.getId(),
                 user.getEmail(),
                 user.getRole().name());
     }

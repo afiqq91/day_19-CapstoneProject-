@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.event_booking_api.exception.EventNotFoundException;
 import com.example.event_booking_api.model.Event;
 import com.example.event_booking_api.model.EventStatus;
 import com.example.event_booking_api.repository.EventRepository;
@@ -39,8 +40,8 @@ public class EventService {
 
     public Event getById(String id) {
         return eventRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Event not found"));
+                .orElseThrow(()
+                        -> new EventNotFoundException("Event not found"));
     }
 
     public Event update(String id, Event updatedEvent) {
@@ -61,6 +62,9 @@ public class EventService {
     }
 
     public void delete(String id) {
-        eventRepository.deleteById(id);
+
+        Event event = getById(id);
+
+        eventRepository.delete(event);
     }
 }

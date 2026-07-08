@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.event_booking_api.dto.BookingReportResponse;
 import com.example.event_booking_api.dto.CreateBookingRequest;
 import com.example.event_booking_api.model.Booking;
 import com.example.event_booking_api.service.BookingService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -28,7 +31,9 @@ public class BookingController {
 
     @PostMapping
     public Booking createBooking(
-            @RequestBody CreateBookingRequest request) {
+            @Valid @RequestBody CreateBookingRequest request) {
+
+        System.out.println("BOOKING CONTROLLER HIT");
 
         return bookingService.createBooking(
                 request.getUserId(),
@@ -56,4 +61,9 @@ public class BookingController {
         return bookingService.cancelBooking(id);
     }
 
+    @GetMapping("/report")
+    public BookingReportResponse getBookingReport() {
+
+        return bookingService.getBookingReport();
+    }
 }

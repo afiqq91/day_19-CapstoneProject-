@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.event_booking_api.dto.BookingReportResponse;
+import com.example.event_booking_api.exception.BookingNotFoundException;
+import com.example.event_booking_api.exception.EventNotFoundException;
 import com.example.event_booking_api.model.Booking;
 import com.example.event_booking_api.model.BookingStatus;
 import com.example.event_booking_api.model.Event;
@@ -33,7 +36,8 @@ public class BookingService {
 
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(()
-                        -> new RuntimeException("Event not found"));
+                        -> new EventNotFoundException(
+                        "Event not found"));
 
         if (event.getEventDate().isBefore(LocalDateTime.now())) {
             throw new RuntimeException(
@@ -41,7 +45,8 @@ public class BookingService {
         }
 
         if (event.getSeatsAvailable() < numberOfSeats) {
-            throw new RuntimeException("Not enough seats available");
+            throw new RuntimeException(
+                    "Not enough seats available");
         }
 
         BigDecimal totalPrice
@@ -66,20 +71,27 @@ public class BookingService {
     }
 
     public List<Booking> getAllBookings() {
+
         return bookingRepository.findAll();
     }
 
-    public List<Booking> getBookingsByUser(String userId) {
+    public List<Booking> getBookingsByUser(
+            String userId) {
+
         return bookingRepository.findByUserId(userId);
     }
 
-    public Booking cancelBooking(String bookingId) {
+    public Booking cancelBooking(
+            String bookingId) {
 
         Booking booking = bookingRepository.findById(bookingId)
                 .orElseThrow(()
-                        -> new RuntimeException("Booking not found"));
+                        -> new BookingNotFoundException(
+                        "Booking not found"));
 
-        if (booking.getBookingStatus() == BookingStatus.CANCELLED) {
+        if (booking.getBookingStatus()
+                == BookingStatus.CANCELLED) {
+
             throw new RuntimeException(
                     "Booking already cancelled");
         }
@@ -87,7 +99,8 @@ public class BookingService {
         Event event = eventRepository.findById(
                 booking.getEventId())
                 .orElseThrow(()
-                        -> new RuntimeException("Event not found"));
+                        -> new EventNotFoundException(
+                        "Event not found"));
 
         event.setSeatsAvailable(
                 event.getSeatsAvailable()
@@ -99,5 +112,26 @@ public class BookingService {
                 BookingStatus.CANCELLED);
 
         return bookingRepository.save(booking);
+    }
+
+    public BookingReportResponse getBookingReport() {
+
+        List<Booking> bookings
+                = bookingRepository.findAll();
+
+        long totalBookings = bookings.size();
+
+        BigDecimal totalRevenue = bookings.stream()
+                .map(Booking::getTotalPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        int totalSeatsBooked = bookings.stream()
+                .mapToInt(Booking::getNumberOfSeats)
+                .sum();
+
+        return new BookingReportResponse(
+                totalBookings,
+                totalRevenue,
+                totalSeatsBooked);
     }
 }
