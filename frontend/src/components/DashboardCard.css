@@ -1,0 +1,110 @@
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 22px;
+    min-height: 145px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid #eef2f7;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .05);
+
+    transition: all .25s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(15, 23, 42, .08);
+}
+
+/* ===========================
+   Card Header
+=========================== */
+
+.dashboard-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-card-header span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* ===========================
+   KPI Value
+=========================== */
+
+.dashboard-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    color: #0f172a;
+}
+
+/* ===========================
+   Trend Text
+=========================== */
+
+.trend {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+/* ===========================
+   Dashboard Icon
+=========================== */
+
+.icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    font-size: 20px;
+
+    flex-shrink: 0;
+}
+
+/* ===========================
+   Icon Colors
+=========================== */
+
+.blue {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.green {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.orange {
+    background: #fff7ed;
+    color: #f59e0b;
+}
+
+.dark {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logo {
+    text-align: center;
+}

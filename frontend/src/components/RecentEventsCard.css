@@ -1,0 +1,251 @@
+.modern-card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 24px;
+    border: 1px solid #eef2f7;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.modern-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title svg {
+    color: #4f46e5;
+    font-size: 18px;
+}
+
+.title h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.view-btn {
+    background: none;
+    border: none;
+    color: #4f46e5;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.view-btn:hover {
+    color: #312e81;
+}
+
+/* ===========================
+   Event List
+=========================== */
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.modern-event-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid #eef2f7;
+    transition: .25s;
+}
+
+.modern-event-row:last-child {
+    border-bottom: none;
+}
+
+.modern-event-row:hover {
+    transform: translateX(5px);
+}
+
+/* ===========================
+   Thumbnail
+=========================== */
+
+.thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.java {
+    background: linear-gradient(135deg,#4f46e5,#7c3aed);
+}
+
+.cloud {
+    background: linear-gradient(135deg,#0ea5e9,#2563eb);
+}
+
+.ai {
+    background: linear-gradient(135deg,#9333ea,#ec4899);
+}
+
+.security {
+    background: linear-gradient(135deg,#10b981,#059669);
+}
+
+.default {
+    background: linear-gradient(135deg,#64748b,#334155);
+}
+
+/* ===========================
+   Date
+=========================== */
+
+.event-date {
+    width: 56px;
+    height: 56px;
+    background: #f3f4ff;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.event-date span {
+    font-size: 10px;
+    font-weight: 700;
+    color: #6366f1;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.event-date strong {
+    margin-top: 3px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1;
+}
+
+/* ===========================
+   Event Information
+=========================== */
+
+.event-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.event-info h5 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+}
+
+.event-info p {
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #64748b;
+}
+
+.available {
+    font-weight: 700;
+    color: #16a34a;
+}
+
+/* ===========================
+   Meta
+=========================== */
+
+.event-meta {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.event-meta svg {
+    font-size: 14px;
+}
+
+.event-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* ===========================
+   Right Section
+=========================== */
+
+.event-right {
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.status {
+    min-width: 80px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .4px;
+}
+
+.active {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+/* ===========================
+   Hover Menu
+=========================== */
+
+.event-menu {
+    color: #94a3b8;
+    cursor: pointer;
+    transition: .2s;
+    font-size: 15px;
+}
+
+.event-menu:hover {
+    color: #4f46e5;
+}
+
+/* ===========================
+   Left Section
+=========================== */
+
+.event-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}

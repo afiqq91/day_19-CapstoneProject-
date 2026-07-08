@@ -1,0 +1,206 @@
+.page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+.page-header h2{
+
+    font-size:38px;
+    font-weight:700;
+    margin-bottom:6px;
+
+}
+
+.page-header p{
+
+    color:#64748b;
+    margin:0;
+
+}
+
+.header-buttons{
+
+    display:flex;
+    gap:12px;
+
+}
+
+.header-buttons button{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+
+.summary-card{
+
+    background:#fff;
+    border-radius:20px;
+    padding:24px;
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    border:1px solid #eef2f7;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.summary-icon{
+
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+
+}
+
+.summary-card h2{
+
+    margin:0;
+    font-size:34px;
+    font-weight:700;
+
+}
+
+.summary-card small{
+
+    color:#64748b;
+}
+
+.search-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:18px 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    border:1px solid #eef2f7;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.search-card input{
+
+    border:none;
+
+    outline:none;
+
+    width:100%;
+
+    font-size:15px;
+
+}
+
+.search-card svg{
+
+    color:#64748b;
+
+}
+
+.modern-table-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    border:1px solid #eef2f7;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.table-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.table-title h5{
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.table-title span{
+
+    color:#64748b;
+
+}
+
+.modern-table{
+
+    margin:0;
+
+}
+
+.modern-table thead th{
+
+    border:none;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    padding-bottom:16px;
+
+}
+
+.modern-table tbody td{
+
+    padding:18px 0;
+
+    vertical-align:middle;
+
+    border-top:1px solid #eef2f7;
+
+}
+
+.modern-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.modern-table tbody tr:hover{
+
+    background:#fafbff;
+
+}

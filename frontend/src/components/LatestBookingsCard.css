@@ -1,0 +1,292 @@
+/* ==========================================
+   Latest Bookings Card
+========================================== */
+
+.booking-card{
+
+    background:#fff;
+
+    border:1px solid #eef2f7;
+
+    border-radius:22px;
+
+    padding:24px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+
+    height:100%;
+
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.booking-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-bottom:18px;
+
+    margin-bottom:18px;
+
+    border-bottom:1px solid #eef2f7;
+
+}
+
+.booking-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.booking-title svg{
+
+    color:#5b4bff;
+
+    font-size:22px;
+
+}
+
+.booking-title h4{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.view-all{
+
+    color:#5b4bff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.view-all:hover{
+
+    opacity:.8;
+
+}
+
+/* ==========================================
+   Table
+========================================== */
+
+.booking-table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+.booking-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:auto;
+
+}
+
+.booking-table thead{
+
+    background:#f8fafc;
+
+}
+
+.booking-table th{
+
+    padding:14px 16px;
+
+    text-align:left;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#64748b;
+
+    border-bottom:1px solid #e5e7eb;
+
+    white-space:nowrap;
+
+}
+
+.booking-table td{
+
+    padding:18px 16px;
+
+    font-size:14px;
+
+    color:#334155;
+
+    border-bottom:1px solid #eef2f7;
+
+    vertical-align:middle;
+
+}
+
+.booking-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.booking-table tbody tr:hover{
+
+    background:#f8faff;
+
+}
+
+.booking-table tbody tr:nth-child(even){
+
+    background:#fcfcfd;
+
+}
+
+/* ==========================================
+   Column Alignment
+========================================== */
+
+/* User */
+
+.booking-table th:nth-child(1),
+.booking-table td:nth-child(1){
+
+    white-space:nowrap;
+
+}
+
+/* Event */
+
+.booking-table th:nth-child(2),
+.booking-table td:nth-child(2){
+
+    white-space:nowrap;
+
+}
+
+/* Seats */
+
+.booking-table th:nth-child(3),
+.booking-table td:nth-child(3){
+
+    text-align:center;
+
+}
+
+/* Amount */
+
+.booking-table th:nth-child(4),
+.booking-table td:nth-child(4){
+
+    text-align:right;
+
+    white-space:nowrap;
+
+    font-weight:700;
+
+}
+
+/* Status */
+
+.booking-table th:nth-child(5),
+.booking-table td:nth-child(5){
+
+    text-align:center;
+
+    white-space:nowrap;
+
+}
+
+/* ==========================================
+   Status Badge
+========================================== */
+
+.booking-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:95px;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+
+    white-space:nowrap;
+
+}
+
+.booking-status.confirmed{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.booking-status.cancelled{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width:1200px){
+
+    .booking-table{
+
+        min-width:760px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .booking-card{
+
+        padding:18px;
+
+    }
+
+}
